@@ -26,6 +26,12 @@
 
 ## 简体中文
 
+<p align="center">
+  <a href="https://github.com/toastbunnie/DOL-NPCTracker/releases/tag/v0.1.0">
+    <img src="https://img.shields.io/badge/下载最新版本-v0.1.0-brightgreen?style=for-the-badge" alt="下载 NPCTracker">
+  </a>
+</p>
+
 NPCTracker 是一款用于《Degrees of Lewdity》的 NPC 动向查询模组。它会自动发现游戏中的原版及第三方模组具名 NPC，并展示当前能够获取的角色地点与活动信息。
 
 ### 功能介绍
@@ -50,11 +56,12 @@ NPCTracker 是一款用于《Degrees of Lewdity》的 NPC 动向查询模组。�
 
 ### 安装方法
 
-1. 下载 NPCTracker 的发布压缩包。
-2. 按照游戏 ModLoader 的模组安装方式，将 NPCTracker 安装到模组目录。
-3. 确认已安装并启用依赖 **TweeReplacer**。
-4. 启用 NPCTracker。
-5. 进入游戏，在日志或笔记界面打开 NPC 动向查询入口。
+1. 前往 [Releases](https://github.com/toastbunnie/DOL-NPCTracker/releases) 下载最新版本。
+2. 下载 `NPCTracker.mod.zip`。
+3. 按照游戏 ModLoader 的模组安装方式，将 NPCTracker 安装到模组目录。
+4. 确认已安装并启用依赖 **TweeReplacer**。
+5. 启用 NPCTracker。
+6. 进入游戏，在日志或笔记界面打开 NPC 动向查询入口。
 
 ### 依赖
 
@@ -89,7 +96,7 @@ NPCTracker/
 
 ### 问题反馈
 
-如果遇到模组无法加载、NPC 未被正确识别或动向信息异常等问题，欢迎在 GitHub Issues 中提交反馈。
+如果遇到模组无法加载、NPC 未被正确识别或动向信息异常等问题，欢迎在 [GitHub Issues](https://github.com/toastbunnie/DOL-NPCTracker/issues) 中提交反馈。
 
 建议附上以下信息：
 
@@ -113,6 +120,12 @@ NPCTracker/
 <a id="english"></a>
 
 ## English
+
+<p align="center">
+  <a href="https://github.com/toastbunnie/DOL-NPCTracker/releases/tag/v0.1.0">
+    <img src="https://img.shields.io/badge/Download-Latest%20Release-brightgreen?style=for-the-badge" alt="Download NPCTracker">
+  </a>
+</p>
 
 NPCTracker is an NPC tracking mod for *Degrees of Lewdity*. It automatically discovers named NPCs from the base game and third-party mods, and displays their currently available location and activity information.
 
@@ -138,11 +151,12 @@ NPCTracker is an NPC tracking mod for *Degrees of Lewdity*. It automatically dis
 
 ### Installation
 
-1. Download the NPCTracker release archive.
-2. Install NPCTracker into your mods directory using the game's ModLoader installation method.
-3. Make sure the required dependency **TweeReplacer** is installed and enabled.
-4. Enable NPCTracker.
-5. Launch the game and open the NPC Tracker entry from the Journal or Notes interface.
+1. Visit [Releases](https://github.com/toastbunnie/DOL-NPCTracker/releases) to download the latest version.
+2. Download `NPCTracker.mod.zip`.
+3. Install NPCTracker into your mods directory using the game's ModLoader installation method.
+4. Make sure the required dependency **TweeReplacer** is installed and enabled.
+5. Enable NPCTracker.
+6. Launch the game and open the NPC Tracker entry from the Journal or Notes interface.
 
 ### Dependencies
 
@@ -177,7 +191,7 @@ NPCTracker/
 
 ### Bug Reports & Feedback
 
-If you encounter loading issues, missing NPCs, or incorrect tracking information, feel free to open an issue on GitHub.
+If you encounter loading issues, missing NPCs, or incorrect tracking information, feel free to submit a report through [GitHub Issues](https://github.com/toastbunnie/DOL-NPCTracker/issues).
 
 Please include the following information when possible:
 

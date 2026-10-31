@@ -1,0 +1,21 @@
+<<widget "titleJournal">>
+    <<setupTabs>>
+    <div id="overlayTabs" class="tab">
+        <<closeButtonMobile>>
+        <<button "Journal">>
+            <<journalNotesTextareaSave>>
+            <<toggleTab>>
+            <<replace #customOverlayContent>><<journal>><</replace>>
+        <</button>>
+        <<button "Notes">>
+            <<toggleTab>>
+            <<set $tempDisable to true>>
+            <<replace #customOverlayContent>><<journalNotes>><</replace>>
+        <</button>>
+        <<button "NPC动向">>
+            <<toggleTab>>
+            <<replace #customOverlayContent>><<npcTracker>><</replace>>
+        <</button>>
+    </div>
+    <<closeButton>>
+<</widget>>

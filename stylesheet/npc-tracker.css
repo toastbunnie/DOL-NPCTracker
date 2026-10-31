@@ -1,0 +1,688 @@
+/* =========================================================
+   NPCTracker
+   透明背景 · 低饱和度彩色文字 · 轻量交互动效
+   ========================================================= */
+
+.npc-tracker-container {
+    width: 100%;
+    padding: 10px 6px 18px;
+    box-sizing: border-box;
+    color: inherit;
+}
+
+.npc-tracker,
+.npc-tracker * {
+    box-sizing: border-box;
+}
+
+.npc-tracker {
+    --npc-accent: #a99bd5;
+    --npc-accent-soft: rgba(169, 155, 213, .13);
+    --npc-teal: #82b9b3;
+    --npc-gold: #d6b36d;
+    --npc-rose: #c98fa6;
+    --npc-border: color-mix(in srgb, currentColor 24%, transparent);
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    width: 100%;
+    color: inherit;
+    animation: npc-tracker-appear .35s ease both;
+}
+
+.npc-tracker button,
+.npc-tracker select {
+    transition:
+        color .2s ease,
+        background-color .2s ease,
+        border-color .2s ease,
+        box-shadow .2s ease,
+        transform .2s ease,
+        opacity .2s ease;
+}
+
+/* -------------------------
+   标题与语言选择
+   ------------------------- */
+
+.npc-tracker-header {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    min-width: 0;
+}
+
+.npc-tracker-heading {
+    min-width: 0;
+}
+
+.npc-tracker-title-main {
+    color: color-mix(in srgb, var(--npc-accent) 78%, currentColor);
+    font-size: 21px;
+    font-weight: 750;
+    line-height: 1.35;
+    letter-spacing: .055em;
+    text-shadow: 0 1px 12px rgba(169, 155, 213, .12);
+}
+
+.npc-tracker-note {
+    margin-top: 5px;
+    color: color-mix(in srgb, var(--npc-teal) 55%, currentColor);
+    opacity: .75;
+    font-size: 12px;
+    line-height: 1.5;
+    letter-spacing: .025em;
+}
+
+.npc-tracker-language {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    flex: 0 0 auto;
+    color: color-mix(in srgb, var(--npc-teal) 65%, currentColor);
+    font-size: 12px;
+}
+
+.npc-tracker-language select {
+    max-width: 132px;
+    padding: 6px 25px 6px 9px;
+    border: 1px solid color-mix(in srgb, var(--npc-accent) 45%, transparent);
+    border-radius: 6px;
+    background: color-mix(in srgb, var(--npc-accent) 5%, transparent);
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+}
+
+.npc-tracker-language select:hover,
+.npc-tracker-language select:focus-visible {
+    border-color: var(--npc-accent);
+    background: var(--npc-accent-soft);
+    outline: none;
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--npc-accent) 15%, transparent);
+}
+
+.npc-tracker-language option {
+    background: #fff;
+    color: #222;
+}
+
+/* -------------------------
+   关注角色区域
+   ------------------------- */
+
+.npc-tracker-favorites {
+    grid-column: 1 / -1;
+    justify-self: end;
+    max-width: 100%;
+    min-width: 180px;
+    padding: 10px 12px;
+    border: 1px solid color-mix(in srgb, var(--npc-gold) 35%, transparent);
+    border-radius: 7px;
+    background: color-mix(in srgb, var(--npc-gold) 5%, transparent);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, .035);
+    animation: npc-tracker-fade-in .3s ease both;
+}
+
+.npc-tracker-favorites-heading {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 8px;
+    color: color-mix(in srgb, var(--npc-gold) 72%, currentColor);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .04em;
+}
+
+.npc-tracker-favorites-heading span {
+    color: var(--npc-gold);
+    opacity: .85;
+    font-variant-numeric: tabular-nums;
+}
+
+.npc-tracker-favorites-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 7px;
+}
+
+.npc-tracker-favorite-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 6px 4px 10px;
+    border: 1px solid color-mix(in srgb, var(--npc-gold) 20%, transparent);
+    border-radius: 5px;
+    background: color-mix(in srgb, var(--npc-gold) 8%, transparent);
+    color: color-mix(in srgb, var(--npc-gold) 65%, currentColor);
+    font-size: 13px;
+    transition:
+        background-color .2s ease,
+        border-color .2s ease,
+        transform .2s ease;
+}
+
+.npc-tracker-favorite-item:hover {
+    transform: translateY(-2px);
+    border-color: color-mix(in srgb, var(--npc-gold) 55%, transparent);
+    background: color-mix(in srgb, var(--npc-gold) 14%, transparent);
+}
+
+.npc-tracker-empty-favorite {
+    max-width: 260px;
+    color: inherit;
+    opacity: .55;
+    font-size: 11px;
+    line-height: 1.45;
+    text-align: right;
+}
+
+/* -------------------------
+   星标按钮
+   ------------------------- */
+
+.npc-tracker-star {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 28px;
+    min-height: 28px;
+    padding: 2px 5px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    background: transparent;
+    color: color-mix(in srgb, var(--npc-gold) 48%, currentColor);
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+    transform-origin: center;
+}
+
+.npc-tracker-star:hover,
+.npc-tracker-star:focus-visible {
+    border-color: color-mix(in srgb, var(--npc-gold) 50%, transparent);
+    background: color-mix(in srgb, var(--npc-gold) 10%, transparent);
+    color: var(--npc-gold);
+    outline: none;
+    transform: scale(1.12);
+}
+
+.npc-tracker-star:active {
+    transform: scale(.88);
+}
+
+.npc-tracker-star.is-active {
+    color: var(--npc-gold);
+    text-shadow: 0 0 9px rgba(214, 179, 109, .35);
+    animation: npc-tracker-star-pop .28s ease both;
+}
+
+/* -------------------------
+   分类页签
+   ------------------------- */
+
+.npc-tracker-tabs {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--npc-border);
+}
+
+.npc-tracker-tab {
+    position: relative;
+    padding: 7px 14px;
+    border: 1px solid color-mix(in srgb, var(--npc-accent) 30%, transparent);
+    border-radius: 6px;
+    background: color-mix(in srgb, var(--npc-accent) 3%, transparent);
+    color: inherit;
+    font: inherit;
+    font-size: 13px;
+    cursor: pointer;
+    opacity: .78;
+    overflow: hidden;
+}
+
+.npc-tracker-tab:hover,
+.npc-tracker-tab:focus-visible {
+    border-color: color-mix(in srgb, var(--npc-accent) 70%, transparent);
+    background: var(--npc-accent-soft);
+    color: color-mix(in srgb, var(--npc-accent) 78%, currentColor);
+    opacity: 1;
+    outline: none;
+    transform: translateY(-1px);
+}
+
+.npc-tracker-tab:active {
+    transform: scale(.97);
+}
+
+.npc-tracker-tab.is-active {
+    border-color: color-mix(in srgb, var(--npc-accent) 65%, transparent);
+    background: color-mix(in srgb, var(--npc-accent) 13%, transparent);
+    color: color-mix(in srgb, var(--npc-accent) 85%, currentColor);
+    opacity: 1;
+    font-weight: 700;
+    box-shadow: inset 0 -2px 0 color-mix(in srgb, var(--npc-accent) 75%, transparent);
+}
+
+/* -------------------------
+   NPC 列表与角色卡片
+   ------------------------- */
+
+.npc-tracker-list {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 11px;
+    min-width: 0;
+}
+
+.npc-tracker-entry {
+    position: relative;
+    min-width: 0;
+    padding: 12px 14px;
+    border: 1px solid color-mix(in srgb, var(--npc-teal) 25%, transparent);
+    border-radius: 7px;
+    background: color-mix(in srgb, var(--npc-teal) 3%, transparent);
+    color: inherit;
+    box-shadow: 0 2px 9px rgba(0, 0, 0, .025);
+    animation: npc-tracker-card-in .35s ease both;
+    transition:
+        border-color .22s ease,
+        background-color .22s ease,
+        box-shadow .22s ease,
+        transform .22s ease;
+}
+
+.npc-tracker-entry:hover {
+    border-color: color-mix(in srgb, var(--npc-teal) 55%, transparent);
+    background: color-mix(in srgb, var(--npc-teal) 6%, transparent);
+    box-shadow: 0 5px 16px rgba(0, 0, 0, .055);
+    transform: translateY(-2px);
+}
+
+.npc-tracker-entry-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding-bottom: 7px;
+    border-bottom: 1px solid color-mix(in srgb, var(--npc-accent) 25%, transparent);
+}
+
+.npc-tracker-name {
+    min-width: 0;
+    color: color-mix(in srgb, var(--npc-accent) 72%, currentColor);
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: .025em;
+    overflow-wrap: anywhere;
+    transition: color .2s ease;
+}
+
+.npc-tracker-entry:hover .npc-tracker-name {
+    color: color-mix(in srgb, var(--npc-accent) 95%, currentColor);
+}
+
+.npc-tracker-title {
+    display: inline-block;
+    margin-top: 7px;
+    padding: 2px 7px;
+    border: 1px solid color-mix(in srgb, var(--npc-rose) 24%, transparent);
+    border-radius: 4px;
+    background: color-mix(in srgb, var(--npc-rose) 7%, transparent);
+    color: color-mix(in srgb, var(--npc-rose) 78%, currentColor);
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.npc-tracker-detail {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 9px;
+    color: inherit;
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+.npc-tracker-detail span:first-child {
+    flex: 0 0 auto;
+    color: color-mix(in srgb, var(--npc-teal) 70%, currentColor);
+    opacity: .85;
+}
+
+.npc-tracker-detail span:last-child {
+    min-width: 0;
+    color: color-mix(in srgb, var(--npc-teal) 35%, currentColor);
+    text-align: right;
+    overflow-wrap: anywhere;
+}
+
+/* -------------------------
+   空列表提示
+   ------------------------- */
+
+.npc-tracker-empty,
+.npc-tracker-notice {
+    grid-column: 1 / -1;
+    padding: 16px 12px;
+    border: 1px dashed color-mix(in srgb, var(--npc-accent) 40%, transparent);
+    border-radius: 6px;
+    background: color-mix(in srgb, var(--npc-accent) 4%, transparent);
+    color: color-mix(in srgb, var(--npc-accent) 55%, currentColor);
+    opacity: .8;
+    font-size: 13px;
+    text-align: center;
+    animation: npc-tracker-fade-in .3s ease both;
+}
+
+.npc-tracker-notice {
+    border-style: solid;
+}
+
+/* =========================================================
+   右上角关注角色浮动卡片
+   ========================================================= */
+
+.npc-tracker-floating {
+    position: fixed;
+    z-index: 9998;
+    top: 18px;
+    right: 20px;
+    width: 230px;
+    max-width: calc(100vw - 32px);
+    padding: 13px 14px 11px;
+    border: 1px solid rgba(169, 155, 213, .42);
+    border-radius: 9px;
+    background: color-mix(in srgb, #252331 88%, transparent);
+    color: #eeeaf7;
+    box-shadow:
+        0 5px 22px rgba(0, 0, 0, .2),
+        0 0 18px rgba(169, 155, 213, .08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    animation: npc-tracker-floating-in .3s ease both;
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease,
+        opacity .2s ease;
+}
+
+.npc-tracker-floating[hidden] {
+    display: none !important;
+}
+
+.npc-tracker-floating:hover {
+    border-color: rgba(169, 155, 213, .68);
+    box-shadow:
+        0 7px 25px rgba(0, 0, 0, .24),
+        0 0 22px rgba(169, 155, 213, .13);
+}
+
+.npc-tracker-floating-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(169, 155, 213, .25);
+}
+
+.npc-tracker-floating-label {
+    color: #c5b6e9;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .08em;
+}
+
+.npc-tracker-floating-count {
+    color: #d6b36d;
+    font-size: 11px;
+    font-variant-numeric: tabular-nums;
+}
+
+.npc-tracker-floating-person {
+    padding: 9px 0 7px;
+}
+
+.npc-tracker-floating-name {
+    color: #d7c9f5;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: .03em;
+}
+
+.npc-tracker-floating-title {
+    margin-top: 4px;
+    color: #d5a8bb;
+    font-size: 11px;
+}
+
+.npc-tracker-floating-info {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 7px;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.npc-tracker-floating-info span {
+    flex: 0 0 auto;
+    color: #91c3bc;
+    opacity: .9;
+}
+
+.npc-tracker-floating-info strong {
+    min-width: 0;
+    color: #e5e0ed;
+    font-weight: 500;
+    text-align: right;
+    overflow-wrap: anywhere;
+}
+
+.npc-tracker-floating-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(169, 155, 213, .2);
+}
+
+.npc-tracker-floating-controls button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 27px;
+    height: 25px;
+    padding: 0;
+    border: 1px solid rgba(169, 155, 213, .35);
+    border-radius: 5px;
+    background: rgba(169, 155, 213, .08);
+    color: #d7c9f5;
+    font-size: 19px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.npc-tracker-floating-controls button:hover:not(:disabled) {
+    border-color: rgba(169, 155, 213, .75);
+    background: rgba(169, 155, 213, .2);
+    color: #fff;
+    transform: scale(1.08);
+}
+
+.npc-tracker-floating-controls button:active:not(:disabled) {
+    transform: scale(.92);
+}
+
+.npc-tracker-floating-controls button:disabled {
+    opacity: .3;
+    cursor: default;
+}
+
+.npc-tracker-floating-controls span {
+    color: rgba(238, 234, 247, .55);
+    font-size: 10px;
+    font-variant-numeric: tabular-nums;
+}
+
+/* =========================================================
+   Toast 提示
+   ========================================================= */
+
+.npc-tracker-toast {
+    position: fixed;
+    z-index: 10000;
+    left: 50%;
+    bottom: 13%;
+    max-width: calc(100vw - 36px);
+    padding: 10px 17px;
+    border: 1px solid rgba(214, 179, 109, .48);
+    border-radius: 7px;
+    background: rgba(39, 35, 43, .94);
+    color: #e9d5a6;
+    box-shadow: 0 5px 22px rgba(0, 0, 0, .2);
+    font-size: 13px;
+    line-height: 1.5;
+    text-align: center;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, 10px);
+    transition:
+        opacity .22s ease,
+        transform .22s ease,
+        visibility .22s ease;
+}
+
+.npc-tracker-toast.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
+}
+
+/* =========================================================
+   动画
+   ========================================================= */
+
+@keyframes npc-tracker-appear {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes npc-tracker-fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes npc-tracker-card-in {
+    from {
+        opacity: 0;
+        transform: translateY(7px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes npc-tracker-floating-in {
+    from {
+        opacity: 0;
+        transform: translateY(-7px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes npc-tracker-star-pop {
+    0% {
+        transform: scale(.75);
+    }
+    65% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* =========================================================
+   小屏适配
+   ========================================================= */
+
+@media (max-width: 560px) {
+    .npc-tracker {
+        gap: 9px;
+    }
+
+    .npc-tracker-header {
+        flex-wrap: wrap;
+    }
+
+    .npc-tracker-favorites {
+        justify-self: stretch;
+        width: 100%;
+    }
+
+    .npc-tracker-favorites-list {
+        justify-content: flex-start;
+    }
+
+    .npc-tracker-list {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 9px;
+    }
+
+    .npc-tracker-language {
+        margin-left: auto;
+    }
+
+    .npc-tracker-floating {
+        top: 10px;
+        right: 10px;
+        width: 205px;
+        padding: 11px 12px 9px;
+    }
+}
+
+/* =========================================================
+   减少动态效果偏好
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .npc-tracker,
+    .npc-tracker *,
+    .npc-tracker-floating,
+    .npc-tracker-toast {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+    }
+}

@@ -1,0 +1,12 @@
+:: NPCTrackerContent [widget]
+<<widget "npcTracker">>
+    <div class="npc-tracker-container">
+        <<if typeof window.npcTrackerRender === "function">>
+            <<print window.npcTrackerRender()>>
+        <<else>>
+            <div class="npc-tracker-error">
+                NPC 追踪器尚未初始化，请检查 javascript/npc-tracker.js 是否成功加载。
+            </div>
+        <</if>>
+    </div>
+<</widget>>

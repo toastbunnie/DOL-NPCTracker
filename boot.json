@@ -1,0 +1,51 @@
+{
+  "name": "NPCTracker",
+  "version": "0.1.0",
+  "styleFileList": [
+    "stylesheet/npc-tracker.css"
+  ],
+  "scriptFileList": [],
+  "tweeFileList": [
+    "twee/patch-title-journal.twee",
+    "twee/patch-overlay.twee",
+    "twee/npc-tracker.twee",
+    "twee/patch-title-notes.twee"
+  ],
+  "imgFileList": [],
+  "scriptFileList_inject_early": [
+    "javascript/npc-tracker.js"
+  ],
+  "addonPlugin": [
+    {
+      "modName": "TweeReplacer",
+      "addonName": "TweeReplacerAddon",
+      "modVersion": "^1.0.0",
+      "params": [
+        {
+          "tip": "在日志界面增加NPC动向页签",
+          "passage": "overlayReplace",
+          "findString": "<<case \"journal\">>",
+          "replaceFile": "twee/patch-overlay.twee"
+        },
+        {
+          "tip": "在日志页签中增加NPC动向入口",
+          "passage": "overlayReplace",
+          "findRegex": "<<widget \"titleJournal\">>[\\s\\S]*?<<\\/widget>>",
+          "replaceFile": "twee/patch-title-journal.twee"
+        },
+        {
+          "tip": "在笔记页签中增加NPC动向入口",
+          "passage": "overlayReplace",
+          "findRegex": "<<widget \"titlejournalNotes\">>[\\s\\S]*?<<\\/widget>>",
+          "replaceFile": "twee/patch-title-notes.twee"
+        }
+      ]
+    }
+  ],
+  "dependenceInfo": [
+    {
+      "modName": "TweeReplacer",
+      "version": "^1.0.0"
+    }
+  ]
+}

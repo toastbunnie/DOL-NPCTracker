@@ -1,0 +1,5 @@
+<<case "npcTracker">>
+        <<run T.currentOverlay = "npcTracker"; $("#customOverlay").attr("data-overlay", "npcTracker")>>
+        <<replace #customOverlayTitle>><<titleJournal>><</replace>>
+        <<replace #customOverlayContent>><<npcTracker>><</replace>>
+<<case "journal">>

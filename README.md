@@ -42,16 +42,11 @@ NPCTracker 是一款用于《Degrees of Lewdity》的 NPC 动向查询模组。�
 
 ### 界面预览
 
-<!-- 将游戏截图放入 docs 文件夹后，可取消下面的注释并修改图片路径：
-
 <p align="center">
-  <img src="docs/screenshot-main.png" width="720" alt="NPCTracker 主界面">
+  <img src="docs/preview.png" width="85%" alt="NPCTracker 界面预览">
+  <br>
+  <em>NPCTracker 界面预览</em>
 </p>
-
-<p align="center">
-  <img src="docs/screenshot-floating.png" width="720" alt="NPCTracker 悬浮面板">
-</p>
--->
 
 ### 安装方法
 
@@ -135,16 +130,11 @@ NPCTracker is an NPC tracking mod for *Degrees of Lewdity*. It automatically dis
 
 ### Preview
 
-<!-- Add screenshots to the docs folder and uncomment the following section:
-
 <p align="center">
-  <img src="docs/screenshot-main.png" width="720" alt="NPCTracker Main Interface">
+  <img src="docs/preview.png" width="85%" alt="NPCTracker Preview">
+  <br>
+  <em>NPCTracker Preview</em>
 </p>
-
-<p align="center">
-  <img src="docs/screenshot-floating.png" width="720" alt="NPCTracker Floating Tracker">
-</p>
--->
 
 ### Installation
 

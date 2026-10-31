@@ -16,6 +16,7 @@
   <img src="https://img.shields.io/badge/version-0.1.0-blue" alt="Version">
   <img src="https://img.shields.io/badge/game-Degrees%20of%20Lewdity-purple" alt="Game">
   <img src="https://img.shields.io/badge/language-简体中文%20%7C%20繁體中文%20%7C%20English-green" alt="Languages">
+  <img src="https://img.shields.io/badge/license-MIT-green" alt="License">
   <img src="https://img.shields.io/badge/author-toastbunnie-orange" alt="Author">
 </p>
 
@@ -41,9 +42,14 @@ NPCTracker 是一款用于《Degrees of Lewdity》的 NPC 动向查询模组。�
 
 ### 界面预览
 
-<!-- 将截图放入仓库后，可在此添加图片，例如：
+<!-- 将游戏截图放入 docs 文件夹后，可取消下面的注释并修改图片路径：
+
 <p align="center">
-  <img src="docs/screenshot.png" width="720" alt="NPCTracker Screenshot">
+  <img src="docs/screenshot-main.png" width="720" alt="NPCTracker 主界面">
+</p>
+
+<p align="center">
+  <img src="docs/screenshot-floating.png" width="720" alt="NPCTracker 悬浮面板">
 </p>
 -->
 
@@ -72,6 +78,8 @@ NPCTracker 是一款用于《Degrees of Lewdity》的 NPC 动向查询模组。�
 
 ```text
 NPCTracker/
+├── README.md
+├── LICENSE
 ├── boot.json
 ├── javascript/
 │   └── npc-tracker.js
@@ -96,6 +104,10 @@ NPCTracker/
 - 相关第三方模组及版本
 - 问题描述与复现步骤
 - 控制台报错或截图
+
+### 许可证
+
+本项目采用 [MIT License](LICENSE) 开源许可证。允许自由使用、修改和分发，具体条款请参阅许可证文件。
 
 ### 作者
 
@@ -123,9 +135,14 @@ NPCTracker is an NPC tracking mod for *Degrees of Lewdity*. It automatically dis
 
 ### Preview
 
-<!-- Add screenshots to your repository and insert them here, for example:
+<!-- Add screenshots to the docs folder and uncomment the following section:
+
 <p align="center">
-  <img src="docs/screenshot.png" width="720" alt="NPCTracker Screenshot">
+  <img src="docs/screenshot-main.png" width="720" alt="NPCTracker Main Interface">
+</p>
+
+<p align="center">
+  <img src="docs/screenshot-floating.png" width="720" alt="NPCTracker Floating Tracker">
 </p>
 -->
 
@@ -154,6 +171,8 @@ NPCTracker is an NPC tracking mod for *Degrees of Lewdity*. It automatically dis
 
 ```text
 NPCTracker/
+├── README.md
+├── LICENSE
 ├── boot.json
 ├── javascript/
 │   └── npc-tracker.js
@@ -178,6 +197,10 @@ Please include the following information when possible:
 - Related third-party mods and their versions
 - Description of the issue and reproduction steps
 - Console errors or screenshots
+
+### License
+
+This project is licensed under the [MIT License](LICENSE). You are free to use, modify, and distribute this project under its terms.
 
 ### Author
 

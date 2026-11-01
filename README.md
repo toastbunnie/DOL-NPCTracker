@@ -13,7 +13,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-0.1.0-blue" alt="Version">
+  <img src="https://img.shields.io/badge/version-0.1.1-blue" alt="Version">
   <img src="https://img.shields.io/badge/game-Degrees%20of%20Lewdity-purple" alt="Game">
   <img src="https://img.shields.io/badge/language-简体中文%20%7C%20繁體中文%20%7C%20English-green" alt="Languages">
   <img src="https://img.shields.io/badge/license-MIT-green" alt="License">
@@ -27,8 +27,8 @@
 ## 简体中文
 
 <p align="center">
-  <a href="https://github.com/toastbunnie/DOL-NPCTracker/releases/tag/v0.1.0">
-    <img src="https://img.shields.io/badge/下载最新版本-v0.1.0-brightgreen?style=for-the-badge" alt="下载 NPCTracker">
+  <a href="https://github.com/toastbunnie/DOL-NPCTracker/releases/tag/v0.1.1">
+    <img src="https://img.shields.io/badge/下载最新版本-v0.1.1-brightgreen?style=for-the-badge" alt="下载 NPCTracker">
   </a>
 </p>
 

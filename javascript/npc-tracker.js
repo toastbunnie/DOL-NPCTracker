@@ -1,8 +1,6 @@
 (function () {
     "use strict";
 
-    window.setup = window.setup || {};
-    setup.npcTracker = setup.npcTracker || {};
 
     const LOVE_NPCS = [
         "Robin", "Whitney", "Eden", "Kylar", "Avery",

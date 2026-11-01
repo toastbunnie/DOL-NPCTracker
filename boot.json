@@ -6,12 +6,14 @@
   ],
   "scriptFileList": [],
   "tweeFileList": [
-    "twee/patch-title-journal.twee",
     "twee/patch-overlay.twee",
     "twee/npc-tracker.twee",
+    "twee/patch-title-journal.twee",
     "twee/patch-title-notes.twee"
   ],
-  "imgFileList": [],
+  "imgFileList": [
+    "docs/preview.png"
+  ],
   "scriptFileList_inject_early": [
     "javascript/npc-tracker.js"
   ],
